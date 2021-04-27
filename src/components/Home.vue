@@ -47,7 +47,20 @@
           <v-img
             :src="country.flag"
             style="border-bottom: 1px solid rgba(0, 0, 0, 0.15);"
-          ></v-img>
+          >
+            <template v-slot:placeholder>
+              <v-row
+                class="fill-height ma-0"
+                align="center"
+                justify="center"
+              >
+                <v-progress-circular
+                  indeterminate
+                  color="grey lighten-2"
+                ></v-progress-circular>
+              </v-row>
+            </template>
+          </v-img>
           <v-card-title>{{ country.name }}</v-card-title>
           <v-card-text>
             <div><strong>Population:</strong> {{ country.population.toLocaleString() }}</div>
