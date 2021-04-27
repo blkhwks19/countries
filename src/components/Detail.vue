@@ -18,7 +18,42 @@
       <v-col cols="6">
         
         <v-row>
-          <v-card-title class="text-h4 font-weight-bold pl-3">{{ country.name }}</v-card-title>
+          <v-card-title class="text-h4 font-weight-bold pl-3">
+            {{ country.name }}
+            <v-tooltip top open-delay="100">
+              <template v-slot:activator="{ on }">
+                <v-btn 
+                  icon 
+                  
+                  :ripple="false"
+                  color="primary" 
+                  class="ml-3" 
+                  :href="`https://en.wikipedia.org/wiki/${country.name}`"
+                  target="_blank"
+                  v-on="on"
+                >
+                  <v-icon>mdi-wikipedia</v-icon>
+                </v-btn>
+              </template>
+              <span>Wikipedia</span>
+            </v-tooltip>
+            <v-tooltip top open-delay="100">
+              <template v-slot:activator="{ on }">
+                <v-btn 
+                  icon 
+                  
+                  :ripple="false"
+                  color="primary" 
+                  :href="`https://www.google.com/maps/place/${country.name}`"
+                  target="_blank"
+                  v-on="on"
+                >
+                  <v-icon>mdi-google-maps</v-icon>
+                </v-btn>
+              </template>
+              <span>Google Maps</span>
+            </v-tooltip>
+          </v-card-title>
         </v-row>
         
         <v-row>
@@ -63,13 +98,16 @@
         <v-row>
           <v-col class="pt-5">
             <div>
-              <strong>Border Countries:</strong> 
-              <v-chip-group column>
+              <strong>Border Countries:</strong>
+              <div v-if="getBorders(country.borders).length === 0">None</div>
+              <v-chip-group v-else column>
                 <v-chip
                   v-for="(item, index) in getBorders(country.borders)"
                   :key="index"
                   :ripple="false"
                   label
+                  color="primary"
+                  style="cursor:default;"
                 >
                   {{ item.name }}
                 </v-chip>
