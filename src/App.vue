@@ -5,7 +5,8 @@
       color="primary"
       dark
     >
-      <div class="text-h5">Where in the world?</div>
+      <v-icon x-large>mdi-earth</v-icon>
+      <div class="text-h5 ml-2">Countries of the World</div>
 
       <v-spacer></v-spacer>
 
