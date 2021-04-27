@@ -10,10 +10,12 @@
       <v-spacer></v-spacer>
 
       <v-btn
-        text
+        large
+        href="https://github.com/blkhwks19/countries" 
+        target="_blank"
       >
-        <v-icon>mdi-weather-night</v-icon>
-        <span class="ml-2">Dark Mode</span>
+        <v-icon class="mr-2">mdi-github</v-icon>
+        Github
       </v-btn>
     </v-app-bar>
 
